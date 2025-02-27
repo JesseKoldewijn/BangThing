@@ -61919,6 +61919,15 @@ export const bangs = [
 	},
 	{
 		c: "Online Services",
+		d: "www.linkedin.com",
+		r: 3073,
+		s: "LinkedIn",
+		sc: "Social",
+		t: "ln",
+		u: "https://www.linkedin.com/search/results/all/?keywords={{{s}}}",
+	},
+	{
+		c: "Online Services",
 		d: "search.lilo.org",
 		r: 0,
 		s: "Lilo",
@@ -62879,15 +62888,6 @@ export const bangs = [
 		sc: "Misc",
 		t: "lndb",
 		u: "http://lndb.info/search?text={{{s}}}",
-	},
-	{
-		c: "Tech",
-		d: "lenewbie.com",
-		r: 5,
-		s: "Le Newbie",
-		sc: "Blogs",
-		t: "ln",
-		u: "http://lenewbie.com/?s={{{s}}}",
 	},
 	{
 		c: "News",
