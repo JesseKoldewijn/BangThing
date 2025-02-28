@@ -20,10 +20,10 @@ export const getBangRedirectUrl = () => {
 	const cleanQuery = query.replace(/!\S+\s*/i, "").trim();
 
 	// Format of the url is:
-	// https://www.google.com/search?q={{{s}}}
+	// https://www.search-engine.web/search?q={{{s}}}
 	const searchUrl = selectedBang?.u.replace(
 		"{{{s}}}",
-		// Replace %2F with / to fix formats like "!ghr+t3dotgg/unduck"
+		// Replace %2F with / to fix formats like "!ghr+something/something-else"
 		encodeURIComponent(cleanQuery).replace(/%2F/g, "/")
 	);
 
