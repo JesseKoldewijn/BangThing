@@ -1,8 +1,8 @@
-import { bangs } from "../bang";
+import { getBangs } from "../bang";
 import { defaultBang } from "../constants/defaults";
 import { noSearchDefault } from "./noSearchDefault";
 
-export const getBangRedirectUrl = () => {
+export const getBangRedirectUrl = async () => {
 	const url = new URL(window.location.href);
 	const query = url.searchParams.get("q")?.trim() ?? "";
 	if (!query) {
@@ -14,7 +14,8 @@ export const getBangRedirectUrl = () => {
 
 	const bangCandidate = match?.[1]?.toLowerCase();
 	const selectedBang =
-		bangs.find((b) => b.t === bangCandidate) ?? defaultBang;
+		(await getBangs()).find((b) => b.t === bangCandidate) ??
+		(await defaultBang());
 
 	// Remove the first bang from the query
 	const cleanQuery = query.replace(/!\S+\s*/i, "").trim();

@@ -1,9 +1,9 @@
 import { getBangRedirectUrl } from "./logic/getRedirect";
 
-function doRedirect() {
-	const searchUrl = getBangRedirectUrl();
+const doRedirect = async () => {
+	const searchUrl = await getBangRedirectUrl();
 	if (!searchUrl) return;
 	window.location.replace(searchUrl);
-}
+};
 
 doRedirect();
