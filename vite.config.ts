@@ -3,6 +3,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import tailwind from "@tailwindcss/vite";
 
 import { webmanifest } from "./src/webmanifest";
+import { printBangsPlugin } from "./src/bang/plugin";
 
 export default defineConfig({
 	plugins: [
@@ -11,6 +12,7 @@ export default defineConfig({
 			registerType: "autoUpdate",
 			manifest: webmanifest,
 		}),
+		printBangsPlugin(),
 	],
 	build: {
 		rollupOptions: {

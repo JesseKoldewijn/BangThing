@@ -8,6 +8,12 @@ export const BANGS_PAYLOAD = () => {
 	return JSON.parse(json.textContent ?? "[]") as typeof bangs;
 };
 
-export const LS_DEFAULT_BANG = localStorage.getItem("default-bang") ?? "g";
+export const LS_DEFAULT_BANG =
+	(typeof localStorage !== "undefined" &&
+		localStorage?.getItem("default-bang")) ??
+	"g";
+
 export const defaultBang = async () =>
 	(await getBangs()).find((b) => b.t === LS_DEFAULT_BANG);
+
+export const BANGS_PUBLIC_PATH = "/bangs.json";

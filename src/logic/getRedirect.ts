@@ -5,6 +5,7 @@ import { noSearchDefault } from "./noSearchDefault";
 export const getBangRedirectUrl = async () => {
 	const url = new URL(window.location.href);
 	const query = url.searchParams.get("q")?.trim() ?? "";
+
 	if (!query) {
 		noSearchDefault();
 		return null;
