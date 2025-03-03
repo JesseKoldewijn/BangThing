@@ -1,5 +1,19 @@
-import { bangs } from "../bang";
-import { getCookie } from "../utils/cookies";
+import { getBangs } from "../bang";
+import type { bangs } from "../bang/source";
+import { getElementByElemID } from "../utils/element";
 
-export const LS_DEFAULT_BANG = getCookie("default-bang") ?? "g";
-export const defaultBang = bangs.find((b) => b.t === LS_DEFAULT_BANG);
+export const BANGS_PAYLOAD = () => {
+	const json = getElementByElemID("bangs-payload");
+	if (!json) return [];
+	return JSON.parse(json.textContent ?? "[]") as typeof bangs;
+};
+
+export const LS_DEFAULT_BANG =
+	(typeof localStorage !== "undefined" &&
+		localStorage?.getItem("default-bang")) ??
+	"g";
+
+export const defaultBang = async () =>
+	(await getBangs()).find((b) => b.t === LS_DEFAULT_BANG);
+
+export const BANGS_PUBLIC_PATH = "/bangs.json";
