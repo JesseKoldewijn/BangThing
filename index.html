@@ -1,35 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Unduck | Jereko</title>
-		<meta
-			name="description"
-			content="A better default search engine (with bangs!)"
-		/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/search.svg" />
-		<link href="./src/styles/tailwind.css" rel="stylesheet" />
-	</head>
-	<body>
-		<header class="shadow fixed w-full">
-			<div
-				class="container mx-auto px-4 py-4 flex justify-between items-cente relative"
-			>
-				<div
-					class="absolute inset-0 w-full h-[120%] bg-neutral-900/90 -z-1"
-				></div>
-				<div class="flex items-center space-x-2">
-					<a
-						href="/"
-						class="border-b-2 border-transparent hover:border-neutral-100 transition-colors duration-500 px-2"
-					>
-						<span class="text-xl font-bold select-none"
-							>BangThing</span
-						>
-					</a>
-				</div>
-				<!-- <nav class="flex space-x-4">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Unduck | Jereko</title>
+    <meta
+      name="description"
+      content="A better default search engine (with bangs!)"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/search.svg" />
+    <link href="./src/styles/tailwind.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="fixed w-full shadow">
+      <div
+        class="items-cente relative container mx-auto flex justify-between px-4 py-4"
+      >
+        <div
+          class="absolute inset-0 -z-1 h-[120%] w-full bg-neutral-900/90"
+        ></div>
+        <div class="flex items-center space-x-2">
+          <a
+            href="/"
+            class="border-b-2 border-transparent px-2 transition-colors duration-500 hover:border-neutral-100"
+          >
+            <span class="text-xl font-bold select-none">BangThing</span>
+          </a>
+        </div>
+        <!-- <nav class="flex space-x-4">
 					<a
 						href="/"
 						class="border-2 border-transparent hover:border-neutral-100 transition-colors duration-500 rounded-lg px-2"
@@ -41,87 +39,85 @@
 						>Docs</a
 					>
 				</nav> -->
-			</div>
-		</header>
+      </div>
+    </header>
 
-		<main class="flex-grow min-h-svh">
-			<div class="container mx-auto px-4 pb-12 pt-30">
-				<h1 class="text-4xl md:text-5xl font-bold text-center mb-6">
-					BangThing
-				</h1>
-				<p class="text-xl text-orange-500 text-center mb-8">
-					Search with a Bang!💥
-				</p>
+    <main class="min-h-svh flex-grow">
+      <div class="container mx-auto px-4 pt-30 pb-12">
+        <h1 class="mb-6 text-center text-4xl font-bold md:text-5xl">
+          BangThing
+        </h1>
+        <p class="mb-8 text-center text-xl text-orange-500">
+          Search with a Bang!💥
+        </p>
 
-				<div
-					data-elem-id="url-container"
-					class="max-w-sm mx-auto flex items-center bg-white rounded-lg overflow-hidden shadow cursor-pointer select-none"
-				>
-					<label for="url-input" class="sr-only"> Url input </label>
-					<input
-						type="text"
-						id="url-input"
-						data-elem-id="url-input"
-						value="https://bang.jereko.dev?q=%s"
-						class="flex-grow p-2 px-4 text-gray-800 bg-gray-100 focus:outline-none pointer-events-none"
-						readonly
-					/>
-					<button
-						data-elem-id="copy-button"
-						class="p-2 bg-gray-200 focus:outline-none focus:ring-0 cursor-pointer select-none"
-					>
-						<img src="/clipboard.svg" alt="Copy" class="w-6 h-6" />
-					</button>
-				</div>
-			</div>
+        <div
+          data-elem-id="url-container"
+          class="mx-auto flex max-w-sm cursor-pointer items-center overflow-hidden rounded-lg bg-white shadow select-none"
+        >
+          <label for="url-input" class="sr-only"> Url input </label>
+          <input
+            type="text"
+            id="url-input"
+            data-elem-id="url-input"
+            value="https://bang.jereko.dev?q=%s"
+            class="pointer-events-none flex-grow bg-gray-100 p-2 px-4 text-gray-800 focus:outline-none"
+            readonly
+          />
+          <button
+            data-elem-id="copy-button"
+            class="cursor-pointer bg-gray-200 p-2 select-none focus:ring-0 focus:outline-none"
+          >
+            <img src="/clipboard.svg" alt="Copy" class="h-6 w-6" />
+          </button>
+        </div>
+      </div>
 
-			<div class="py-12">
-				<div class="container mx-auto px-4">
-					<h2 class="text-3xl font-bold text-center mb-8">
-						Why use BangThing?
-					</h2>
-					<div class="grid md:grid-cols-3 gap-8">
-						<div class="text-center">
-							<div class="text-4xl mb-4">🔒</div>
-							<h3 class="text-xl font-semibold mb-2">Private</h3>
-							<p>
-								No tracking from BangThing's side, only from the
-								platforms you're searching on.
-							</p>
-						</div>
-						<div class="text-center">
-							<div class="text-4xl mb-4">⚡</div>
-							<h3 class="text-xl font-semibold mb-2">Fast</h3>
-							<p>
-								Get instant results due to the local-first
-								nature of BangThing.
-							</p>
-						</div>
-						<div class="text-center">
-							<div class="text-4xl mb-4">🚫</div>
-							<h3 class="text-xl font-semibold mb-2">Ad-free</h3>
-							<p>
-								This projects is free as in open-source and
-								doesn't serve any advertisements.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
+      <div class="flex flex-col gap-20 py-12">
+        <div class="container mx-auto px-4">
+          <h2 class="mb-8 text-center text-3xl font-bold">
+            Why use BangThing?
+          </h2>
 
-		<footer class="bg-neutral-800 text-white py-8">
-			<div class="container mx-auto px-4">
-				<div
-					class="flex flex-col md:flex-row justify-between items-center"
-				>
-					<div class="flex items-center space-x-2 mb-4 md:mb-0">
-						BangThing - Search with a Bang!💥
-					</div>
-				</div>
-			</div>
-		</footer>
+          <div class="grid gap-8 md:grid-cols-3">
+            <div class="text-center">
+              <div class="mb-4 text-4xl">🔒</div>
+              <h3 class="mb-2 text-xl font-semibold">Private</h3>
+              <p>
+                No tracking from BangThing's side, only from the platforms
+                you're searching on.
+              </p>
+            </div>
+            <div class="text-center">
+              <div class="mb-4 text-4xl">⚡</div>
+              <h3 class="mb-2 text-xl font-semibold">Fast</h3>
+              <p>
+                Get instant results due to the local-first nature of BangThing.
+              </p>
+            </div>
+            <div class="text-center">
+              <div class="mb-4 text-4xl">🚫</div>
+              <h3 class="mb-2 text-xl font-semibold">Ad-free</h3>
+              <p>
+                This projects is free as in open-source and doesn't serve any
+                advertisements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-		<script type="module" src="/src/main.ts"></script>
-	</body>
+    <footer class="bg-neutral-800 py-8 text-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center justify-between md:flex-row">
+          <div class="mb-4 flex items-center space-x-2 md:mb-0">
+            BangThing - Search with a Bang!💥
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
