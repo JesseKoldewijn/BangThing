@@ -1,5 +1,3 @@
-import { getBangs } from "~/bang";
-
 import { getElementByElemID } from "../utils/element";
 
 export const noSearchDefault = async () => {
