@@ -1,5 +1,4 @@
-import { useEffect } from "preact/hooks";
-import { config } from "process";
+import { useEffect } from "react";
 
 export const LinkState = () => {
   const setActiveLink = () => {

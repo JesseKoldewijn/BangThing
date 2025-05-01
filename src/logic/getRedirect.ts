@@ -11,12 +11,18 @@ export const getBangRedirectUrl = async () => {
     return null;
   }
 
-  const match = query.match(/!(\S+)/i);
+  const bangRegex = /!(\S+)/i;
+  const match = bangRegex.exec(query);
 
   const bangCandidate = match?.[1]?.toLowerCase();
-  const selectedBang =
-    (await getBangs()).find((b) => b.t === bangCandidate) ??
-    (await defaultBang());
+
+  const bangsList = await getBangs();
+  const selected = bangsList?.find(
+    (b) => b.t === bangCandidate || b.t === `!${bangCandidate}`,
+  );
+  const defaultBangEntry = await defaultBang();
+  // @ts-expect-error
+  const selectedBang = selected ?? defaultBangEntry;
 
   // Remove the first bang from the query
   const cleanQuery = query.replace(/!\S+\s*/i, "").trim();
@@ -29,5 +35,5 @@ export const getBangRedirectUrl = async () => {
     encodeURIComponent(cleanQuery).replace(/%2F/g, "/"),
   );
 
-  return !searchUrl ? null : searchUrl;
+  return searchUrl ?? null;
 };

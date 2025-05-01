@@ -1,4 +1,7 @@
 ---
+import "../styles/tailwind.css";
+import { MainScript } from "../logic/main";
+
 import { getPageTitle, getPageDescription } from "~/utils/page-meta";
 import Header from "./parts/header.astro";
 import Footer from "./parts/footer.astro";
@@ -19,13 +22,12 @@ const { title, description } = Astro.props;
 		<meta name="description" content={getPageDescription(description)} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/search.svg" />
-		<link href="./src/styles/tailwind.css" rel="stylesheet" />
 		<ClientRouter />
 	</head>
 	<body transition:animate="fade">
 		<Header />
 		<slot />
 		<Footer />
-		<script type="module" src="/src/logic/main.ts" async></script>
+		<MainScript client:load />
 	</body>
 </html>

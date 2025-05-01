@@ -1,6 +1,6 @@
 // This file was (mostly) ripped from https://duckduckgo.com/bang.js
 
-export const bangs = [
+export const baseBangs = [
   {
     c: "AI",
     d: "www.t3.chat",
@@ -122053,4 +122053,4 @@ export const bangs = [
     t: "\u10d0\u10e1\u10e2\u10e0\u10dd",
     u: "http://astronet.ge/?s={{{s}}}",
   },
-];
+] as const;

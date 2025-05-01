@@ -3,4 +3,5 @@
 :root {
   background-color: var(--color-neutral-900);
   color: var(--color-neutral-100);
+  overscroll-behavior: none;
 }

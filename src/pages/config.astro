@@ -1,5 +1,8 @@
 ---
+import { ConfigView } from "~/components/views/config";
 import RootLayout from "~/layouts/root-layout.astro";
+
+import { bangs } from "~/bang/source";
 ---
 
 <RootLayout title="Config">
@@ -14,7 +17,12 @@ import RootLayout from "~/layouts/root-layout.astro";
 		</div>
 
 		<div class="py-12">
-			<div class="container mx-auto px-4">TBD</div>
+			<div
+				class="container mx-auto px-4 flex flex-col items-center justify-center"
+			>
+				<strong class="mb-4 text-2xl">Config</strong>
+				<ConfigView ssrBangs={bangs} client:idle />
+			</div>
 		</div>
 	</main>
 </RootLayout>

@@ -13,6 +13,8 @@
     "moduleDetection": "force",
     "noEmit": true,
 
+    /* Type checking */
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -20,14 +22,18 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    /* Preact JSX */
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
+    /* React JSX */
+    "jsx": "preserve",
+    "jsxImportSource": "react",
 
     /* Aliases */
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "react": ["./node_modules/preact/compat/"],
+      "react/jsx-runtime": ["./node_modules/preact/jsx-runtime"],
+      "react-dom": ["./node_modules/preact/compat/"],
+      "react-dom/*": ["./node_modules/preact/compat/*"]
     }
   },
   "include": ["src"]

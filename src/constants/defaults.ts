@@ -1,5 +1,5 @@
 import { getBangs } from "../bang";
-import type { bangs } from "../bang/source";
+import type { bangs } from "../bang/source/base";
 import { getElementByElemID } from "../utils/element";
 
 export const BANGS_PAYLOAD = () => {

@@ -1,13 +1,15 @@
-import preact from "@astrojs/preact";
+import react from "@astrojs/react";
+import vercelAdapter from "@astrojs/vercel";
 import tailwind from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import { VitePWA } from "vite-plugin-pwa";
 
-import { printBangsPlugin } from "./src/bang/plugin";
 import { webmanifest } from "./src/webmanifest";
 
 const config = defineConfig({
-  integrations: [preact()],
+  output: "static",
+  adapter: vercelAdapter(),
+  integrations: [react()],
   vite: {
     plugins: [
       tailwind(),
@@ -15,7 +17,6 @@ const config = defineConfig({
         registerType: "autoUpdate",
         manifest: webmanifest,
       }) as any,
-      printBangsPlugin(),
     ],
     build: {
       rollupOptions: {
