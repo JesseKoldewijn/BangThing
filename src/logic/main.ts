@@ -13,7 +13,28 @@ export const MainScript = () => {
     window.location.replace(searchUrl);
   };
 
+  const swRegistration = async () => {
+    const sqUrl = new URL(window.location.href);
+    sqUrl.pathname = "/sw.js";
+
+    // register the service worker
+    if ("serviceWorker" in navigator) {
+      const isRegistered = localStorage.getItem("swRegistered");
+      if (!isRegistered) {
+        navigator.serviceWorker.register(sqUrl.href).then((registration) => {
+          console.log(
+            "Service Worker registered with scope: ",
+            registration.scope,
+          );
+        });
+        localStorage.setItem("swRegistered", "true");
+        return;
+      }
+    }
+  };
+
   useEffect(() => {
+    swRegistration();
     doRedirect();
   }, []);
 

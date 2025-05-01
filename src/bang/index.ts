@@ -3,8 +3,7 @@ import type { bangs as bangsSource } from "./source";
 
 export const getBangs = async () => {
   try {
-    // @ts-expect-error
-    const isDev = import.meta.env.DEV;
+    const isDev = process.env.NODE_ENV === "development";
 
     const localCacheExpiry = localStorage.getItem("bangsExpiry");
     const now = new Date().getTime();
@@ -13,7 +12,7 @@ export const getBangs = async () => {
       ? now - parseInt(localCacheExpiry) > cacheExpiryTime
       : true;
 
-    if (isDev) {
+    if (isDev && typeof window !== "undefined") {
       const importedBangs = await import("./source").then((x) => x.bangs);
       if (typeof window !== "undefined") {
         localStorage.setItem("bangs", JSON.stringify(importedBangs));
