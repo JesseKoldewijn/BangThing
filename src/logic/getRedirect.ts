@@ -21,7 +21,6 @@ export const getBangRedirectUrl = async () => {
     (b) => b.t === bangCandidate || b.t === `!${bangCandidate}`,
   );
   const defaultBangEntry = await defaultBang();
-  // @ts-expect-error
   const selectedBang = selected ?? defaultBangEntry;
 
   // Remove the first bang from the query

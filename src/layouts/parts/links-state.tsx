@@ -25,17 +25,22 @@ export const LinkState = () => {
   };
 
   const enableConfigLink = () => {
-    const hasBeenRedirected = localStorage.getItem("bangRedirected");
     const configLink = document.getElementById("config-link");
+    if (!configLink) return;
 
-    if (configLink) {
-      if (hasBeenRedirected) {
-        configLink.removeAttribute("data-hidden");
-        configLink.ariaDisabled = "false";
-      } else {
-        configLink.setAttribute("data-hidden", "true");
-        configLink.ariaDisabled = "true";
-      }
+    const hasBeenRedirected = Boolean(localStorage.getItem("bangRedirected"));
+    const hasShowConfigFlag =
+      window.location.search.includes("showConfig=true");
+    const isDev = process.env.NODE_ENV === "development";
+
+    const showConfig = hasBeenRedirected || hasShowConfigFlag || isDev;
+
+    if (showConfig) {
+      configLink.removeAttribute("data-hidden");
+      configLink.ariaDisabled = "false";
+    } else {
+      configLink.setAttribute("data-hidden", "true");
+      configLink.ariaDisabled = "true";
     }
   };
 
