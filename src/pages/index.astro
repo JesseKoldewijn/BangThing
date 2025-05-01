@@ -1,0 +1,72 @@
+---
+import RootLayout from "~/layouts/root-layout.astro";
+---
+
+<RootLayout>
+	<main class="min-h-svh flex-grow">
+		<div class="container mx-auto px-4 pt-30 pb-12">
+			<h1 class="mb-6 text-center text-4xl font-bold md:text-5xl">
+				BangThing
+			</h1>
+			<p class="mb-8 text-center text-xl text-orange-500">
+				Search with a Bang!💥
+			</p>
+
+			<div
+				data-elem-id="url-container"
+				class="mx-auto flex max-w-sm cursor-pointer items-center overflow-hidden rounded-lg bg-white shadow select-none"
+			>
+				<label for="url-input" class="sr-only"> Url input </label>
+				<input
+					type="text"
+					id="url-input"
+					data-elem-id="url-input"
+					value="https://bang.jereko.dev?q=%s"
+					class="pointer-events-none flex-grow bg-gray-100 p-2 px-4 text-gray-800 focus:outline-none"
+					readonly
+				/>
+				<button
+					data-elem-id="copy-button"
+					class="cursor-pointer bg-gray-200 p-2 select-none focus:ring-0 focus:outline-none"
+				>
+					<img src="/clipboard.svg" alt="Copy" class="h-6 w-6" />
+				</button>
+			</div>
+		</div>
+
+		<div class="flex flex-col gap-20 py-12">
+			<div class="container mx-auto px-4">
+				<h2 class="mb-8 text-center text-3xl font-bold">
+					Why use BangThing?
+				</h2>
+
+				<div class="grid gap-8 md:grid-cols-3">
+					<div class="text-center">
+						<div class="mb-4 text-4xl">🔒</div>
+						<h3 class="mb-2 text-xl font-semibold">Private</h3>
+						<p>
+							No tracking from BangThing's side, only from the
+							platforms you're searching on.
+						</p>
+					</div>
+					<div class="text-center">
+						<div class="mb-4 text-4xl">⚡</div>
+						<h3 class="mb-2 text-xl font-semibold">Fast</h3>
+						<p>
+							Get instant results due to the local-first nature of
+							BangThing.
+						</p>
+					</div>
+					<div class="text-center">
+						<div class="mb-4 text-4xl">🚫</div>
+						<h3 class="mb-2 text-xl font-semibold">Ad-free</h3>
+						<p>
+							This projects is free as in open-source and doesn't
+							serve any advertisements.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</RootLayout>

@@ -20,6 +20,10 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
+    /* Preact JSX */
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+
     /* Aliases */
     "baseUrl": ".",
     "paths": {

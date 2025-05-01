@@ -1,0 +1,31 @@
+---
+import { getPageTitle, getPageDescription } from "~/utils/page-meta";
+import Header from "./parts/header.astro";
+import Footer from "./parts/footer.astro";
+import { ClientRouter } from "astro:transitions";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>{getPageTitle(title)}</title>
+		<meta name="description" content={getPageDescription(description)} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/search.svg" />
+		<link href="./src/styles/tailwind.css" rel="stylesheet" />
+		<ClientRouter />
+	</head>
+	<body transition:animate="fade">
+		<Header />
+		<slot />
+		<Footer />
+		<script type="module" src="/src/logic/main.ts" async></script>
+	</body>
+</html>
