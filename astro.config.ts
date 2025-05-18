@@ -9,21 +9,6 @@ import { webmanifest } from "./src/webmanifest";
 
 const env = process.env.NODE_ENV || "development";
 
-const dropBangSource = () => {
-  return {
-    name: "drop bang.js",
-    transform(_code, id) {
-      if (id.includes("bang/source/base")) {
-        return {
-          code: "",
-          map: null,
-        };
-      }
-      return null;
-    },
-  };
-};
-
 const envSpecificPluginsMapping = {
   ANALYZE: [
     visualizer({
@@ -32,7 +17,8 @@ const envSpecificPluginsMapping = {
     }),
   ],
   NODE_ENV: {
-    production: [dropBangSource()],
+    production: [],
+    development: [],
   },
 };
 
@@ -94,6 +80,9 @@ const config = defineConfig({
           manualChunks(id) {
             if (id.includes("bang/source/base")) {
               return `bang`;
+            }
+            if (id.includes("ClientRouter")) {
+              return `client-router`;
             }
           },
         },
