@@ -11,10 +11,10 @@
     "analyze": "ANALYZE=true astro build && node ./scripts/open-analyze-report.js"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.7",
-    "@astrojs/vercel": "^8.1.4",
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/vercel": "^8.1.5",
     "@tanstack/react-virtual": "^3.13.6",
-    "astro": "^5.7.10",
+    "astro": "^5.9.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -35,7 +35,7 @@
     "vite": "^6.3.5",
     "vite-plugin-pwa": "^1.0.0"
   },
-  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b",
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",

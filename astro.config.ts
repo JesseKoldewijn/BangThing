@@ -7,7 +7,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 
 import { webmanifest } from "./src/webmanifest";
 
-const env = process.env.NODE_ENV || "development";
+const nodeEnv = process.env.NODE_ENV || "development";
 
 const envSpecificPluginsMapping = {
   ANALYZE: [
@@ -26,9 +26,9 @@ const getEnvSpecificPlugins = () => {
   const envSpecificPlugins = [] as any;
   for (const [key, value] of Object.entries(envSpecificPluginsMapping)) {
     if (key === "NODE_ENV") {
-      if (env === "production" && "production" in value) {
+      if (nodeEnv === "production" && "production" in value) {
         envSpecificPlugins.push(...(value?.production as any));
-      } else if (env === "development" && "development" in value) {
+      } else if (nodeEnv === "development" && "development" in value) {
         envSpecificPlugins.push(...(value?.development as any));
       }
     } else if (process.env[key]) {
@@ -51,6 +51,7 @@ const config = defineConfig({
     }),
     astroPwa({
       registerType: "autoUpdate",
+      injectRegister: "auto",
       scope: "/",
       filename: "sw.js",
       manifest: webmanifest,

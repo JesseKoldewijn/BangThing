@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { pwaInfo } from "virtual:pwa-info";
 
 import { getBangRedirectUrl } from "./getRedirect";
 
@@ -14,22 +15,20 @@ export const MainScript = () => {
   };
 
   const swRegistration = async () => {
-    const sqUrl = new URL(window.location.href);
-    sqUrl.pathname = "/sw.js";
+    try {
+      const sqUrl = new URL(window.location.href);
+      sqUrl.pathname = pwaInfo?.registerSW?.registerPath ?? "/sw.js";
 
-    // register the service worker
-    if ("serviceWorker" in navigator) {
-      const isRegistered = localStorage.getItem("swRegistered");
-      if (!isRegistered) {
-        navigator.serviceWorker.register(sqUrl.href).then((registration) => {
-          console.log(
-            "Service Worker registered with scope: ",
-            registration.scope,
-          );
-        });
-        localStorage.setItem("swRegistered", "true");
-        return;
-      }
+      navigator.serviceWorker.register(sqUrl.href).then((registration) => {
+        console.log(
+          "Service Worker registered with scope: ",
+          registration.scope,
+        );
+      });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Unknown error";
+      console.error("Error registering service worker", message);
+      localStorage.setItem("swRegistered", "false");
     }
   };
 
